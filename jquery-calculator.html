@@ -166,7 +166,10 @@
           var setter = holder.splice(index, 0, ",")
           console.log("set with comma: " + setter);
 
-          var powered = Math.pow(setter);
+          var joined = setter.join();
+
+
+          var powered = Math.pow(joined);
           console.log("## powered: " + powered);
         }
         var joined = holder.join("");
@@ -174,7 +177,8 @@
         var answer = eval(joined);
         console.log(answer)
         $("#result").html(answer);
-        console.log("equal clicked, holder: " + holder);
+        console.log("equal clicked, holder: " + joined);
+        
         holder = [];
 
       });
@@ -186,7 +190,6 @@
         holder = [];
         $("#result").html(holder.join(""));
         console.log(holder);
-
       });
 
 
