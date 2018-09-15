@@ -74,7 +74,25 @@
 
 $(document).ready(function() {
 
-// Your code here...
+var holder = [];
+
+$(".number").on("click", function(){
+  holder.push(($(this).attr("value")));
+  console.log(holder);
+});
+
+$(".operator").on("click", function(){
+  holder.push(($(this).attr("value")));
+  console.log(holder);
+});
+
+$(".equal").on("click", function(){
+  var joined = holder.join("");
+  var answer = eval(joined);
+  $("#result").html(answer);
+  console.log(holder);
+  holder = [];
+});
 
 
 });
