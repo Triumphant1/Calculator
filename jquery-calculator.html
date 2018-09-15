@@ -97,20 +97,21 @@
       });
 
       $("#button-multiply").on("click", function () {
-        let opp = "*"
-        holder.push(opp)
+        let opp = "*";
+        holder.push(opp);
         $("#result").html(holder.join(""));
       });
 
       $("#button-divide").on("click", function () {
-        let opp = "/"
-        holder.push(opp)
+        let opp = "/";
+        holder.push(opp);
         $("#result").html(holder.join(""));
       });
 
       $("#button-power").on("click", function () {
-        let epo = Math.pow(holder, x)
-        
+        let opp = "^"
+        holder.push(opp);
+        // let epo = Math.pow(holder, x);
         $("#result").html(holder.join(""));
       });
 
@@ -151,15 +152,35 @@
 
 
 
+
       $(".equal").on("click", function () {
+
+        if (holder.includes("^")) {
+          var carr = "^";
+          var index = holder.indexOf(carr)
+          console.log("index of carr " + index)
+
+          var epo = holder.splice(index, 1);
+          console.log("after splice, epo: " + epo)
+
+          var setter = holder.splice(index, 0, ",")
+          console.log("set with comma: " + setter);
+
+          var powered = Math.pow(setter);
+          console.log("## powered: " + powered);
+        }
         var joined = holder.join("");
         console.log(joined);
         var answer = eval(joined);
         console.log(answer)
         $("#result").html(answer);
-        console.log(holder);
+        console.log("equal clicked, holder: " + holder);
         holder = [];
+
       });
+
+
+
 
       $("#button-clear").on("click", function () {
         holder = [];
