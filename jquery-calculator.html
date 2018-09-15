@@ -153,35 +153,72 @@
 
 
 
-      $(".equal").on("click", function () {
+$(".equal").on("click", function () {
+  if (holder.includes("^")) {
+    var carr = "^";
+    var index = holder.indexOf(carr)
+    console.log("index of carr " + index)
 
-        if (holder.includes("^")) {
-          var carr = "^";
-          var index = holder.indexOf(carr)
-          console.log("index of carr " + index)
+    // Stevo CODE below
 
-          var epo = holder.splice(index, 1);
-          console.log("after splice, epo: " + epo)
+    var splicePoint = index + 1;
+    console.log("splicePoint: " + splicePoint);
 
-          var setter = holder.splice(index, 0, ",")
-          console.log("set with comma: " + setter);
+    var secondNumSplice = index - 1;
 
-          var joined = setter.join();
+    var secondNumber = holder.splice(splicePoint);
+    console.log("secondNumber: " + secondNumber);
+
+    // var totalLength = holder.length // 3
+    // console.log("totalLength: " + totalLength);
+
+    // var numToCut = totalLength - index;
+    // console.log("numToCut: " + numToCut);
 
 
-          var powered = Math.pow(joined);
-          console.log("## powered: " + powered);
-        }
-        var joined = holder.join("");
-        console.log(joined);
-        var answer = eval(joined);
-        console.log(answer)
-        $("#result").html(answer);
-        console.log("equal clicked, holder: " + joined);
-        
-        holder = [];
+    console.log(holder);
+    var firstNumber = holder.splice(secondNumSplice,1);
+    console.log("firstNumber: " + firstNumber);
 
-      });
+    $("#result").html(Math.pow(firstNumber, secondNumber));
+    
+    // Stevo CODE above
+
+  }
+  
+;
+
+});
+
+
+
+
+
+      // $(".equal").on("click", function () {
+
+      //   if (holder.includes("^")) {
+      //     var carr = "^";
+      //     var index = holder.indexOf(carr)
+      //     console.log("index of carr " + index)
+
+      //     var epo = holder.splice(index, 1);
+      //     console.log("after splice, epo: " + epo)
+
+      //     var setter = holder.splice(index, 0, ",")
+      //     console.log("set with comma: " + setter);
+
+      //     var powered = Math.pow(setter);
+      //     console.log("## powered: " + powered);
+      //   }
+      //   var joined = holder.join("");
+      //   console.log(joined);
+      //   var answer = eval(joined);
+      //   console.log(answer)
+      //   $("#result").html(answer);
+      //   console.log("equal clicked, holder: " + holder);
+      //   holder = [];
+
+      // });
 
 
 
